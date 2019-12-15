@@ -63,4 +63,10 @@ public class UserController {
 		return user;
 	}
 
+	@DeleteMapping("{id}")
+	public User delete(@PathVariable("id") Integer id){
+		User user=new User(2,"宇智波鼬","654321");
+		return user;
+	}
+
 }

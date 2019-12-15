@@ -62,12 +62,12 @@ public class UserControllerTest {
         final MockHttpServletResponse response = mockMvc.perform(
                 MockMvcRequestBuilders.post("/user")
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
-                        .param("username","旗木卡卡西")
-                        //.param("password","123456")
-                        )
+                        .param("username", "旗木卡卡西")
+                //.param("password","123456")
+        )
                 .andReturn().getResponse();
-        log.info("status={}",response.getStatus());
-        log.info("content={}",response.getContentAsString());
+        log.info("status={}", response.getStatus());
+        log.info("content={}", response.getContentAsString());
 
     }
 
@@ -76,9 +76,21 @@ public class UserControllerTest {
         final MockHttpServletResponse response = mockMvc.perform(
                 MockMvcRequestBuilders.put("/user/1")
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
-                        .param("username","admin")
-                .param("password","12345")
+                        .param("username", "admin")
+                        .param("password", "12345")
         )
+                .andReturn().getResponse();
+        log.info("status={}", response.getStatus());
+        log.info("content={}", response.getContentAsString());
+
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+        final MockHttpServletResponse response = mockMvc.perform(
+                MockMvcRequestBuilders.delete("/user/1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                )
                 .andReturn().getResponse();
         log.info("status={}",response.getStatus());
         log.info("content={}",response.getContentAsString());
