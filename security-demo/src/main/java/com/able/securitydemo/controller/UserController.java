@@ -4,6 +4,7 @@
 package com.able.securitydemo.controller;
 
 import com.able.securitydemo.dto.User;
+import com.able.securitydemo.exception.UserNotFoundException;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
@@ -32,10 +33,11 @@ public class UserController {
 	@GetMapping("{id:\\d+}")
 	@JsonView(User.UserDetialView.class)
 	public User queryUserInfo(@PathVariable("id")Integer id){
-		User user=new User();
-		user.setUsername("宇智波哟");
-		user.setPassword("2346");
-		return user;
+//		User user=new User();
+//		user.setUsername("宇智波哟");
+//		user.setPassword("2346");
+//		return user;
+		throw new UserNotFoundException(id.toString());
 
 	}
 	@PostMapping
