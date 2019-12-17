@@ -33,11 +33,11 @@ public class UserController {
 	@GetMapping("{id:\\d+}")
 	@JsonView(User.UserDetialView.class)
 	public User queryUserInfo(@PathVariable("id")Integer id){
-//		User user=new User();
-//		user.setUsername("宇智波哟");
-//		user.setPassword("2346");
-//		return user;
-		throw new RuntimeException("抛出异常咯");
+		User user=new User();
+		user.setUsername("宇智波哟");
+		user.setPassword("2346");
+		return user;
+//		throw new RuntimeException("抛出异常咯");
 //		throw new UserNotFoundException(id.toString());
 
 	}
